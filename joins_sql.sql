@@ -32,3 +32,10 @@ ON products.ProductID = orderdetails.ProductID;
 
 -- 3. Retrieve the CustomerName and the names of all products they have purchased.
 
+SELECT c.CustomerName, p.ProductName FROM customers c
+INNER JOIN orders o
+ON c.CustomerID = o.CustomerID
+INNER JOIN orderdetails od
+ON o.OrderID = od.OrderID
+INNER JOIN products p
+ON od.ProductID = p.ProductID;
